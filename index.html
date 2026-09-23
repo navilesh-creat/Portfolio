@@ -3,13 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navilesh Bhatti | Portfolio</title>
+
+    <!-- Primary SEO -->
+    <title>Navilesh Bhatti — Full-Stack Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Navilesh Bhatti, a full-stack developer building web apps with React, Node.js, and Firebase. See live projects including Klyro and the Dominion of Arkenfold community portal.">
+    <meta name="keywords" content="Navilesh Bhatti, full-stack developer, web developer portfolio, React developer, Node.js developer, Firebase, Klyro, Punjab India developer">
+    <meta name="author" content="Navilesh Bhatti">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://navilesh-creat.github.io/Portfolio/">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://navilesh-creat.github.io/Portfolio/">
+    <meta property="og:title" content="Navilesh Bhatti — Full-Stack Developer">
+    <meta property="og:description" content="Full-stack developer building React, Node.js and Firebase projects. Explore live work including Klyro and the Dominion of Arkenfold portal.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Navilesh Bhatti — Full-Stack Developer">
+    <meta name="twitter:description" content="Full-stack developer building React, Node.js and Firebase projects.">
+    <meta name="theme-color" content="#0a0a0f">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Navilesh Bhatti",
+      "url": "https://navilesh-creat.github.io/Portfolio/",
+      "jobTitle": "Full-Stack Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rupnagar",
+        "addressRegion": "Punjab",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://github.com/navilesh-creat",
+        "https://www.linkedin.com/in/navilesh-bhatti-393982439"
+      ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Scroll progress -->
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+
+    <!-- Live moving background -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="aurora" aria-hidden="true">
+        <span class="aurora-blob blob-1"></span>
+        <span class="aurora-blob blob-2"></span>
+        <span class="aurora-blob blob-3"></span>
+    </div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
@@ -28,20 +79,21 @@
         </div>
     </nav>
 
+    <main>
     <!-- Hero Section -->
     <header class="hero">
         <div class="container">
             <p class="tagline">Hello, I'm</p>
             <h1 class="hero-title">Navilesh Bhatti</h1>
-            <h2 class="hero-subtitle">A passionate <span class="gradient-text">Full-Stack Developer</span></h2>
+            <h2 class="hero-subtitle">I build <span class="gradient-text typed-text" id="typedRole">web apps</span><span class="cursor-blink">|</span></h2>
             <p class="hero-description">
-                I build exceptional digital experiences that make a difference. 
-                With expertise in React, Node.js, and cloud technologies, I turn complex problems 
+                I build exceptional digital experiences that make a difference.
+                With expertise in React, Node.js, and cloud technologies, I turn complex problems
                 into elegant, user-friendly solutions.
             </p>
             <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#projects" class="btn btn-primary magnetic">View My Work</a>
+                <a href="#contact" class="btn btn-secondary magnetic">Get In Touch</a>
             </div>
             <div class="social-links">
                 <a href="https://github.com/navilesh-creat" target="_blank" rel="noopener" aria-label="GitHub">
@@ -51,6 +103,7 @@
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </a>
             </div>
+            <div class="scroll-cue" aria-hidden="true"><span></span></div>
         </div>
     </header>
 
@@ -61,45 +114,125 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        I'm a dedicated full-stack developer with a passion for creating 
-                        beautiful, functional websites and applications. With 5+ years of 
-                        experience in both front-end and back-end development, I bring a 
+                        I'm a dedicated full-stack developer with a passion for creating
+                        beautiful, functional websites and applications. With 5+ years of
+                        experience in both front-end and back-end development, I bring a
                         holistic approach to every project.
                     </p>
                     <p>
-                        I believe that great design is not just about how something looks, 
-                        but how it works. My goal is to create seamless experiences that 
+                        I believe that great design is not just about how something looks,
+                        but how it works. My goal is to create seamless experiences that
                         users love and that help businesses achieve their goals.
                     </p>
                     <p>
-                        When I'm not coding, you'll find me exploring new technologies like 
-                        AI/ML integration, contributing to open-source projects, or sharing 
+                        When I'm not coding, you'll find me exploring new technologies like
+                        AI/ML integration, contributing to open-source projects, or sharing
                         knowledge through tech blogging and mentoring.
                     </p>
                     <p>
-                        I'm always open to new opportunities and challenging projects. 
-                        Currently focused on building scalable web applications and 
+                        I'm always open to new opportunities and challenging projects.
+                        Currently focused on building scalable web applications and
                         exploring the intersection of AI and user experience.
                     </p>
                 </div>
                 <div class="about-stats">
                     <div class="stat">
-                        <span class="stat-number">3+</span>
+                        <span class="stat-number" data-count="3">0</span>+
                         <span class="stat-label">Years Experience</span>
                     </div>
-                   
-                </div>  
+                    <div class="stat">
+                        <span class="stat-number" data-count="2">0</span>
+                        <span class="stat-label">Live Projects Shipped</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="15">0</span>+
+                        <span class="stat-label">Tools & Technologies</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    
+    <!-- Projects / Experience Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & Work</h2>
+            <div class="projects-grid">
+
+                <article class="project-card tilt-card">
+                    <div class="project-image project-image--arkenfold">
+                        <div class="project-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Firebase · Vanilla JS</span>
+                        <h3 class="project-title">Dominion of Arkenfold — Community Portal</h3>
+                        <p class="project-description">
+                            The official website for a community's governing body. Includes a searchable
+                            constitution reader with reading progress and section links, a filterable member
+                            directory with role badges, a pinned announcement timeline, and email-link
+                            sign-up with verified accounts before any password is set.
+                        </p>
+                        <div class="project-tech">
+                            <span>Firebase Auth</span>
+                            <span>HTML/CSS/JS</span>
+                            <span>Dark &amp; Light Theme</span>
+                            <span>A11y</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://navilesh-creat.github.io/Arkenfold-constitution/" target="_blank" rel="noopener" class="project-link magnetic">
+                                Live Site
+                            </a>
+                            <a href="https://github.com/navilesh-creat/Arkenfold-constitution" target="_blank" rel="noopener" class="project-link project-link--ghost magnetic">
+                                Source Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card tilt-card">
+                    <div class="project-image project-image--klyro">
+                        <div class="project-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 14h3M8 17h6"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Client-Side Toolkit</span>
+                        <h3 class="project-title">Klyro</h3>
+                        <p class="project-description">
+                            A free, no-login, no-ads toolkit that bundles everyday utilities &mdash; PDF merging,
+                            image compression, QR codes, a JSON/CSV converter, a text-diff checker, and more &mdash;
+                            into one fast hub. Every tool runs entirely in the browser, so no file ever
+                            leaves the visitor's device.
+                        </p>
+                        <div class="project-tech">
+                            <span>Vanilla JS</span>
+                            <span>pdf-lib</span>
+                            <span>Canvas API</span>
+                            <span>Privacy-First</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://navilesh-creat.github.io/Klyro/" target="_blank" rel="noopener" class="project-link magnetic">
+                                Live Site
+                            </a>
+                            <a href="https://github.com/navilesh-creat" target="_blank" rel="noopener" class="project-link project-link--ghost magnetic">
+                                My GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-category tilt-card">
                     <h3 class="skill-category-title">Frontend</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">React</span>
@@ -111,7 +244,7 @@
                         <span class="skill-tag">Redux</span>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category tilt-card">
                     <h3 class="skill-category-title">Backend</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Node.js</span>
@@ -123,7 +256,7 @@
                         <span class="skill-tag">WebSockets</span>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category tilt-card">
                     <h3 class="skill-category-title">Database & Cloud</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">PostgreSQL</span>
@@ -134,7 +267,7 @@
                         <span class="skill-tag">Supabase</span>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category tilt-card">
                     <h3 class="skill-category-title">DevOps & Tools</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Docker</span>
@@ -156,29 +289,28 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <p>
-                        I'm always interested in hearing about new projects, creative ideas, 
+                        I'm always interested in hearing about new projects, creative ideas,
                         or opportunities to be part of your vision.
                     </p>
                     <p>
-                        Feel free to reach out through the form or connect with me on 
+                        Feel free to reach out through the form or connect with me on
                         social media. I typically respond within 24 hours.
                     </p>
                     <div class="contact-links">
-                        <a href="mailto:navilesh@example.com" class="contact-link">
+                        <a href="mailto:navileshbhatti@gmail.com" class="contact-link">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.542 11.288H15.169V2.924H16.571V11.288H15.169V21.712H16.571V11.288H20.542V11.288h1.403l.003-8.646h-1.406V11.288zm-10.193 0V2.924H7.378V11.288h-1.403V21.712h1.403V11.288h1.393v8.396H10.35V11.288z"/></svg>
                             navileshbhatti@gmail.com
                         </a>
-                        <a href="tel:+1234567890" class="contact-link">
+                        <a href="tel:+916284729381" class="contact-link">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
                             +91 6284729381
                         </a>
                         <span class="contact-link">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
-                            Ucha khera, Rupnagar, punjab, India
+                            Ucha Khera, Rupnagar, Punjab, India
                         </span>
                     </div>
                 </div>
-                <br>
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -196,11 +328,12 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-full magnetic">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -210,18 +343,21 @@
                     Built with care by <span class="gradient-text">Navilesh Bhatti</span>
                 </p>
                 <p class="footer-copyright">
-                    © 2026 Navilesh Bhatti. All rights reserved.
+                    &copy; 2026 Navilesh Bhatti. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
+
+    <button id="backToTop" class="back-to-top magnetic" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
 
     <!-- Firebase SDK (ES Modules) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyA4Md358GZqcTpFIi0X_4i5nNCKq_ZNE50",
             authDomain: "protfolio-94cbd.firebaseapp.com",
@@ -232,11 +368,9 @@
             measurementId: "G-HRE59KB61P"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Make Firebase pieces available globally for script.js (a non-module script)
         window.firebaseDb = db;
         window.firebaseAddDoc = addDoc;
         window.firebaseCollection = collection;

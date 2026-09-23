@@ -832,3 +832,281 @@ section {
     margin-bottom: 0;
   }
 }
+
+/* ============================================================
+   LIVE BACKGROUND, SEO-SAFE ANIMATION LAYER
+   ============================================================ */
+
+html, body { position: relative; }
+
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 480px; height: 480px;
+  top: -10%; left: -10%;
+  background: radial-gradient(circle, #6366f1, transparent 70%);
+  animation: drift1 22s ease-in-out infinite;
+}
+.blob-2 {
+  width: 560px; height: 560px;
+  bottom: -15%; right: -10%;
+  background: radial-gradient(circle, #a855f7, transparent 70%);
+  animation: drift2 26s ease-in-out infinite;
+}
+.blob-3 {
+  width: 380px; height: 380px;
+  top: 40%; left: 55%;
+  background: radial-gradient(circle, #ec4899, transparent 70%);
+  animation: drift3 30s ease-in-out infinite;
+}
+
+@keyframes drift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(120px, 80px) scale(1.15); }
+  66% { transform: translate(60px, 160px) scale(0.9); }
+}
+@keyframes drift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-100px, -60px) scale(0.85); }
+  66% { transform: translate(-160px, -120px) scale(1.1); }
+}
+@keyframes drift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-140px, 100px) scale(1.2); }
+}
+
+.cursor-glow {
+  position: fixed;
+  top: 0; left: 0;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.16), transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .cursor-glow, .aurora { display: none; }
+}
+
+/* Keep real content above the background layers */
+.nav, .hero, section, footer, .back-to-top, .scroll-progress {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 1001;
+  background: transparent;
+}
+
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--accent-gradient);
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+}
+
+/* ============================================================
+   HERO EXTRAS: typed text + scroll cue
+   ============================================================ */
+
+.cursor-blink {
+  display: inline-block;
+  color: var(--accent-light);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.scroll-cue {
+  margin: 56px auto 0;
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--border-light);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.scroll-cue span {
+  width: 4px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--accent-light);
+  animation: scrollCue 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollCue {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+
+/* ============================================================
+   MAGNETIC BUTTONS + TILT CARDS (interactive touch)
+   ============================================================ */
+
+.magnetic {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.tilt-card {
+  transition: transform 0.15s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ============================================================
+   PROJECTS SECTION
+   ============================================================ */
+
+.projects {
+  background: var(--bg-primary);
+}
+
+.project-image--arkenfold .project-placeholder {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(168, 85, 247, 0.12));
+  color: #a5b4fc;
+}
+
+.project-image--klyro .project-placeholder {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.18), rgba(99, 102, 241, 0.12));
+  color: #f9a8d4;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  background: var(--accent-gradient);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-link--ghost {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.project-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+.project-link--ghost:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   STAT COUNTER
+   ============================================================ */
+
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob, .cursor-blink, .scroll-cue span {
+    animation: none !important;
+  }
+  .fade-in {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
