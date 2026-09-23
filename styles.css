@@ -130,7 +130,18 @@ img {
   color: var(--text-secondary);
   position: relative;
   padding: 4px 0;
+  animation: navLinkFadeIn 0.5s ease backwards;
 }
+
+@keyframes navLinkFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-menu li:nth-child(1) .nav-link { animation-delay: 0.1s; }
+.nav-menu li:nth-child(2) .nav-link { animation-delay: 0.2s; }
+.nav-menu li:nth-child(3) .nav-link { animation-delay: 0.3s; }
+.nav-menu li:nth-child(4) .nav-link { animation-delay: 0.4s; }
 
 .nav-link::after {
   content: '';
@@ -330,7 +341,7 @@ img {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 6px 24px rgba(99, 102, 241, 0.4);
 }
 
@@ -473,6 +484,7 @@ section {
 .project-card:hover .project-placeholder {
   background: rgba(99, 102, 241, 0.1);
   color: var(--accent-light);
+  transform: scale(1.15) rotate(-2deg);
 }
 
 .project-placeholder svg {
@@ -591,6 +603,8 @@ section {
   color: var(--text-primary);
   border-color: var(--accent);
   background: rgba(99, 102, 241, 0.1);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
 }
 
 /* ===== Contact Section ===== */
