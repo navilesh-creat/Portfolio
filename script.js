@@ -131,13 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         // Save to Firestore
-        if (window.firebaseDb) {
-          await addDoc(collection(window.firebaseDb, 'contact_messages'), {
+        if (window.firebaseDb && window.firebaseAddDoc) {
+          await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDb, 'contact_messages'), {
             name: nameInput.value.trim(),
             email: emailInput.value.trim(),
             subject: subjectInput.value.trim() || 'No Subject',
             message: messageInput.value.trim(),
-            createdAt: serverTimestamp()
+            createdAt: window.firebaseServerTimestamp()
           });
         } else {
           // Fallback if Firebase not loaded
