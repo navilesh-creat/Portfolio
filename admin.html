@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin — Contact Messages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="admin-page">
+
+        <!-- Login screen -->
+        <section id="loginScreen" class="admin-login">
+            <form id="loginForm" class="admin-login-card">
+                <h1 class="admin-title">Admin Login</h1>
+                <p class="admin-subtitle">Sign in to view contact messages.</p>
+                <div class="form-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" id="adminEmail" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" required placeholder="Your password">
+                </div>
+                <p id="loginError" class="admin-error" hidden></p>
+                <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+            </form>
+        </section>
+
+        <!-- Admin dashboard -->
+        <section id="dashboard" class="admin-dashboard" hidden>
+            <header class="admin-header">
+                <h1 class="admin-title">Contact Messages</h1>
+                <div class="admin-header-actions">
+                    <span id="adminUserEmail" class="admin-user-email"></span>
+                    <button id="signOutBtn" class="btn btn-secondary">Sign Out</button>
+                </div>
+            </header>
+
+            <div id="messagesEmpty" class="admin-empty" hidden>
+                <p>No messages yet. Once someone submits your contact form, it'll show up here.</p>
+            </div>
+
+            <div id="messagesList" class="admin-messages"></div>
+        </section>
+
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+        import {
+            getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+        } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+        import {
+            getFirestore, collection, query, orderBy, onSnapshot, doc, updateDoc, deleteDoc
+        } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA4Md358GZqcTpFIi0X_4i5nNCKq_ZNE50",
+            authDomain: "protfolio-94cbd.firebaseapp.com",
+            projectId: "protfolio-94cbd",
+            storageBucket: "protfolio-94cbd.firebasestorage.app",
+            messagingSenderId: "401060804894",
+            appId: "1:401060804894:web:5ee50146d92860ee05f10f",
+            measurementId: "G-HRE59KB61P"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        window.firebaseAdmin = {
+            auth, db, signInWithEmailAndPassword, onAuthStateChanged, signOut,
+            collection, query, orderBy, onSnapshot, doc, updateDoc, deleteDoc
+        };
+    </script>
+    <script src="admin.js"></script>
+</body>
+</html>
