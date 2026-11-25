@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin.html
 
-Sitemap: https://navilesh-creat.github.io/Portfolio/sitemap.xml
+Sitemap: https://navileshbhatti.xyz/sitemap.xml
