@@ -108,5 +108,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .cue i{display:block;width:1px;height:34px;margin:8px auto 0;background:linear-gradient(var(--accent),transparent);transform-origin:top;animation:cue 2.2s ease-in-out infinite}
 @keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 @media(max-width:720px){.cue{display:none}.ring{right:-35%;opacity:.5}.avatar{width:128px;height:128px}.logo{font-size:.95rem}.cta{padding:8px 4px}}
+/* failsafe: if scripts are slow or blocked, reveal everything after 3s */
+.js [data-reveal]{animation:show .01s 3s forwards}.js:not(.ready) .w>span{animation:rise .85s 3s both}
+@keyframes show{to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 @media print{.site-header,.progress,.to-top,.toast,.consent,.skip,.actions,.contact form,.copy,.linklike{display:none!important}body{background:#fff;color:#000}a{color:#000}}

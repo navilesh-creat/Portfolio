@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>try{var d=document.documentElement,t=localStorage.getItem('nb_theme')||'dark';d.dataset.theme=t;d.classList.add('js');if(!sessionStorage.getItem('nb_intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('intro-on')}catch(e){document.documentElement.dataset.theme='dark'}</script>
+<script>try{var d=document.documentElement,t=localStorage.getItem('nb_theme')||'dark';d.dataset.theme=t;if(!/bot|crawl|spider|lighthouse|headless/i.test(navigator.userAgent)){d.classList.add('js');if(!sessionStorage.getItem('nb_intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('intro-on')}}catch(e){document.documentElement.dataset.theme='dark'}</script>
 <noscript><style>.intro{display:none!important}</style></noscript>
 <title>Navilesh Bhatti | Web and Game Developer in Punjab, India</title>
 <meta name="description" content="Navilesh Bhatti builds web apps and games with React, Node.js and Firebase. See live projects such as Klyro and the Arkenfold community portal, and get in touch.">
