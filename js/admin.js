@@ -41,17 +41,34 @@ document.addEventListener('DOMContentLoaded', () => {
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     loginError.hidden = true;
-    const email = document.getElementById('adminEmail').value.trim();
+    const email = document.getElementById('adminEmail').value.trim().toLowerCase();
     const password = document.getElementById('adminPassword').value;
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
       loginForm.reset();
     } catch (err) {
-      loginError.textContent = 'Sign in failed. Check your email and password.';
+      const hints = {
+        'auth/invalid-credential': 'Wrong email or password.',
+        'auth/unauthorized-domain': 'This domain is not authorized in Firebase (Authentication > Settings > Authorized domains).',
+        'auth/operation-not-allowed': 'Email/Password sign-in is not enabled in Firebase Authentication.',
+        'auth/network-request-failed': 'Network problem. Check your connection and try again.',
+        'auth/too-many-requests': 'Too many attempts. Wait a few minutes and try again.'
+      };
+      loginError.textContent = 'Sign in failed. ' + (hints[err.code] || 'Error code: ' + (err.code || 'unknown'));
       loginError.hidden = false;
       console.error(err);
     }
+  });
+
+  // Show or hide the password while typing, to catch typos
+  const pw = document.getElementById('adminPassword');
+  const pwToggle = document.getElementById('pwToggle');
+  pwToggle.addEventListener('click', () => {
+    const show = pw.type === 'password';
+    pw.type = show ? 'text' : 'password';
+    pwToggle.textContent = show ? 'Hide' : 'Show';
+    pwToggle.setAttribute('aria-pressed', show);
   });
 
   // Sign out

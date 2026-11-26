@@ -1277,3 +1277,9 @@ html, body { position: relative; }
 .admin-btn-delete:hover {
   background: rgba(239, 68, 68, 0.1);
 }
+
+/* hidden attribute must win over display rules (login screen stayed visible after sign-in) */
+[hidden]{display:none!important}
+
+.pw-wrap{position:relative}.pw-wrap input{padding-right:72px}
+.pw-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--text-secondary);font:inherit;font-size:.85rem;cursor:pointer;padding:6px}

@@ -20,11 +20,11 @@
                 <p class="admin-subtitle">Sign in to view contact messages.</p>
                 <div class="form-group">
                     <label for="adminEmail">Email</label>
-                    <input type="email" id="adminEmail" required placeholder="you@example.com">
+                    <input type="email" id="adminEmail" required placeholder="you@example.com" autocomplete="username" autocapitalize="off" spellcheck="false">
                 </div>
                 <div class="form-group">
                     <label for="adminPassword">Password</label>
-                    <input type="password" id="adminPassword" required placeholder="Your password">
+                    <div class="pw-wrap"><input type="password" id="adminPassword" required placeholder="Your password" autocomplete="current-password" autocapitalize="off" spellcheck="false"><button type="button" id="pwToggle" class="pw-toggle" aria-pressed="false">Show</button></div>
                 </div>
                 <p id="loginError" class="admin-error" hidden></p>
                 <button type="submit" class="btn btn-primary btn-full">Sign In</button>
