@@ -115,5 +115,10 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 @media(max-width:720px){.wrap{padding-left:16px;padding-right:16px}section[id]{padding:40px 16px}.card{padding:18px}
 .grid3{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:20px -16px 0;padding:0 16px 8px;scrollbar-width:none}
 .grid3::-webkit-scrollbar{display:none}.grid3 .card{flex:0 0 78%;scroll-snap-align:start}}
+/* FAQ and prose pages */
+.faq{max-width:760px;display:grid;gap:10px}.faq details{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:0 18px}
+.faq summary{cursor:pointer;padding:16px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-size:1.3rem;line-height:1}.faq details[open] summary::after{content:"\2212"}.faq details:hover{border-color:var(--accent)}.faq p{margin:0 0 16px;color:var(--muted)}
+.prose{max-width:760px;padding-top:56px;padding-bottom:72px}.prose h1{font-size:2rem;max-width:none}.prose h2{font-size:1.2rem;margin-top:2rem}.prose p,.prose li{color:var(--muted)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 @media print{.site-header,.progress,.to-top,.toast,.consent,.skip,.actions,.contact form,.copy,.linklike{display:none!important}body{background:#fff;color:#000}a{color:#000}}

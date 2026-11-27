@@ -1,0 +1,19 @@
+# Navilesh Bhatti
+
+> Navilesh Bhatti is a student web and game developer from Rupnagar, Punjab, India. He builds web apps and games with React, Node.js and Firebase, takes freelance web projects, and is currently writing a video editor from scratch.
+
+Official website: https://navileshbhatti.xyz/
+
+## Projects
+- [Klyro](https://navilesh-creat.github.io/Klyro/): free toolkit of browser tools (PDF merge, image compression, QR codes, JSON and CSV converter, text diff). No login, files never leave the device.
+- [Dominion of Arkenfold community portal](https://navilesh-creat.github.io/Arkenfold-constitution/): constitution reader, member directory and announcements for a community, with Firebase sign-in.
+- Other work: gravity-drift and FixFlow on GitHub.
+
+## Profiles
+- GitHub: https://github.com/navilesh-creat
+- LinkedIn: https://www.linkedin.com/in/navilesh-bhatti-393982439
+- Instagram: https://www.instagram.com/_navi_49/
+
+## Contact
+- Email: navileshbhatti@gmail.com
+- Contact form: https://navileshbhatti.xyz/#contact

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://navileshbhatti.xyz/</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://navileshbhatti.xyz/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://navileshbhatti.xyz/img/navilesh-bhatti.jpg</image:loc><image:caption>Navilesh Bhatti, web and game developer</image:caption></image:image>
+  </url>
+  <url><loc>https://navileshbhatti.xyz/privacy.html</loc><lastmod>2026-11-27</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
