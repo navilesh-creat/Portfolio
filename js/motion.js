@@ -3,7 +3,7 @@ export function initMotion() {
   const root = document.documentElement;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const items = document.querySelectorAll('[data-reveal]');
-  if (reduce) { items.forEach(e => e.classList.add('in')); return; }
+  if (reduce) { items.forEach(e => e.classList.add('in')); root.classList.add('ready'); return; }
 
   setTimeout(() => root.classList.add('ready'), root.classList.contains('intro-on') ? 1300 : 50);
 

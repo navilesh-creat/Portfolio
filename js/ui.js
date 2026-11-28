@@ -42,7 +42,7 @@ export function initUI() {
   document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
 
   document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(b.dataset.copy); toast(b.dataset.copy.includes('@') ? 'Email address copied' : 'Phone number copied'); }
+    try { await navigator.clipboard.writeText(b.dataset.copy); toast('Email address copied'); }
     catch { toast('Copy failed, please select it manually', true); }
   }));
 }
